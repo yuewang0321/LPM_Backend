@@ -10,7 +10,6 @@ certifi==2020.4.5.1
 cffi==1.14.0
 chardet==3.0.4
 conda==4.3.13
-conda-package-handling==1.6.0
 cryptography==2.8
 decorator==4.4.2
 defusedxml==0.6.0
