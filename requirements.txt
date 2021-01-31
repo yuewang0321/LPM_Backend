@@ -14,6 +14,8 @@ cryptography==2.8
 decorator==4.4.2
 defusedxml==0.6.0
 entrypoints==0.3
+Flask==1.1.2
+Flask-Cors==3.0.10
 gunicorn==20.0.4
 h5py==3.1.0
 idna==2.8
@@ -62,6 +64,7 @@ Send2Trash==1.5.0
 six==1.14.0
 soupsieve==2.0.1
 terminado==0.8.3
+tensorflow==1.13.1
 testpath==0.4.4
 tornado==6.0.4
 tqdm==4.42.1
