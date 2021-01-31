@@ -9,32 +9,23 @@ from tensorflow import keras
 
 
 global model
-global modelfile
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-modelfile = './tempmodel.h5'
-model = tf.keras.models.load_model(modelfile)
-
 
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 def parseData(data):
-    # temp = json.loads(data)
-    # print(temp)
     lst = []
     for key, value in data.items():
         lst.append(float(value))
-#     print(lst)
     return [lst]
 
 @app.route('/', methods=['GET','POST'])
 def makecalc():
-    print(model)
     response_object={'status':'success'}
 #     print(request.method)
     if (request.method=='POST'):
-        print("inside the if")
         data = request.get_json(force=True)
         new = parseData(data)
         prediction = np.array2string(model.predict(new))
@@ -51,10 +42,7 @@ def makecalc():
 
 
 if __name__ == '__main__':
+    modelfile = './tempmodel.h5'
+    model = tf.keras.models.load_weights(modelfile)
     #model = p.load(open(modelfile, 'rb'))
-    print("johans is awesome")
-    print("johans is awesome")
-    print("johans is awesome")
-    print("johans is awesome")
-    # model = tf.keras.models.load_model(modelfile)
     app.run() 
