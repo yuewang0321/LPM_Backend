@@ -9,6 +9,7 @@ from tensorflow import keras
 
 
 global model
+global modelfile
 modelfile = './tempmodel.h5'
 model = tf.keras.models.load_model(modelfile)
 
