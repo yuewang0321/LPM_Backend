@@ -47,7 +47,7 @@ def makecalc():
 
 
 if __name__ == '__main__':
-    modelfile = '../flask/tempmodel.h5'
+    modelfile = './tempmodel.h5'
     #model = p.load(open(modelfile, 'rb'))
     print(modelfile)
     model = tf.keras.models.load_model(modelfile)
