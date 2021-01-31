@@ -34,16 +34,16 @@ def makecalc():
     response_object={'status':'success'}
 #     print(request.method)
     if (request.method=='POST'):
-        print("inside the if")
-        data = request.get_json(force=True)
-        new = parseData(data)
-        prediction = np.array2string(model.predict(new))
-#         print(prediction)
-        if(str(prediction)=="[[1.]]"):
-#             print("inner if")
-            response_object=json.dumps({'status':'1'})
-        elif(str(prediction)=="[[0.]]"):
-            response_object={'status':'0'}
+#         print("inside the if")
+#         data = request.get_json(force=True)
+#         new = parseData(data)
+#         prediction = np.array2string(model.predict(new))
+# #         print(prediction)
+#         if(str(prediction)=="[[1.]]"):
+# #             print("inner if")
+#             response_object=json.dumps({'status':'1'})
+#         elif(str(prediction)=="[[0.]]"):
+        response_object={'status':'0'}
     return response_object 
 
 
