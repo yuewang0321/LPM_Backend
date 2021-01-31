@@ -9,6 +9,8 @@ from tensorflow import keras
 
 
 global model
+global modelfile = './tempmodel.h5'
+model = tf.keras.models.load_model(modelfile)
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -47,8 +49,7 @@ def makecalc():
 
 
 if __name__ == '__main__':
-    modelfile = './tempmodel.h5'
     #model = p.load(open(modelfile, 'rb'))
     print(modelfile)
-    model = tf.keras.models.load_model(modelfile)
+    print(model)
     app.run() 
