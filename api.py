@@ -10,11 +10,12 @@ from tensorflow import keras
 
 global model
 global modelfile
-modelfile = './tempmodel.h5'
-model = tf.keras.models.load_model(modelfile, compile=False)
 
 app = Flask(__name__)
 app.config.from_object(__name__)
+modelfile = './tempmodel.h5'
+model = tf.keras.models.load_model(modelfile)
+
 
 CORS(app, resources={r'/*': {'origins': '*'}})
 
@@ -24,26 +25,26 @@ def parseData(data):
     lst = []
     for key, value in data.items():
         lst.append(float(value))
-    print(lst)
+#     print(lst)
     return [lst]
 
 @app.route('/', methods=['GET','POST'])
 def makecalc():
-    print("inside mackecalc")
+    print(model)
     response_object={'status':'success'}
-    print(request.method)
+#     print(request.method)
     if (request.method=='POST'):
         print("inside the if")
         data = request.get_json(force=True)
         new = parseData(data)
         prediction = np.array2string(model.predict(new))
-        print(prediction)
+#         print(prediction)
         if(str(prediction)=="[[1.]]"):
-            print("inner if")
+#             print("inner if")
             response_object=json.dumps({'status':'1'})
         elif(str(prediction)=="[[0.]]"):
             response_object={'status':'0'}
-    return response_object
+    return response_object 
 
 
 # sanity check route
@@ -51,6 +52,9 @@ def makecalc():
 
 if __name__ == '__main__':
     #model = p.load(open(modelfile, 'rb'))
-    print(modelfile)
-    print(model)
+    print("johans is awesome")
+    print("johans is awesome")
+    print("johans is awesome")
+    print("johans is awesome")
+    # model = tf.keras.models.load_model(modelfile)
     app.run() 
