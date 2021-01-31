@@ -28,6 +28,7 @@ def makecalc():
     if (request.method=='POST'):
         data = request.get_json(force=True)
         new = parseData(data)
+        model = tf.keras.models.load_model('./tempmodel.h5')
         prediction = np.array2string(model.predict(new))
 #         print(prediction)
         if(str(prediction)=="[[1.]]"):
