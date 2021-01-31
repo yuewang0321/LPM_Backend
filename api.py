@@ -11,7 +11,7 @@ from tensorflow import keras
 global model
 global modelfile
 modelfile = './tempmodel.h5'
-model = tf.keras.models.load_model(modelfile)
+model = tf.keras.models.load_model(modelfile, compile=False)
 
 app = Flask(__name__)
 app.config.from_object(__name__)
