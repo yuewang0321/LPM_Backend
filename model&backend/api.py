@@ -40,7 +40,11 @@ def makecalc():
             response_object=json.dumps({'status':'1'})
         elif(str(prediction)=="[[0.]]"):
             response_object={'status':'0'}
-    return response_object 
+    return response_object
+
+@app.route('/', methods=['GET'])
+def sayHello():
+    print("Hello there")
 
 
 # sanity check route
