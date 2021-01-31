@@ -24,7 +24,7 @@ def parseData(data):
     print(lst)
     return [lst]
 
-@app.route('/predict/', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def makecalc():
     print("inside mackecalc")
     response_object={'status':'success'}
@@ -41,10 +41,6 @@ def makecalc():
         elif(str(prediction)=="[[0.]]"):
             response_object={'status':'0'}
     return response_object
-
-@app.route('/', methods=['GET'])
-def sayHello():
-    print("Hello there")
 
 
 # sanity check route
