@@ -9,7 +9,7 @@ from tensorflow import keras
 
 
 global model
-global modelfile = './tempmodel.h5'
+modelfile = './tempmodel.h5'
 model = tf.keras.models.load_model(modelfile)
 
 app = Flask(__name__)
